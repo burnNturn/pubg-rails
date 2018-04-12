@@ -5,14 +5,12 @@ class CreateUsers < ActiveRecord::Migration[5.0]
     add_column :users, :created_at, :datetime
     add_index :users, :created_at
 
-    change_table :users do |t|
-      t.string :provider
-      t.string :uid
-      t.string :name
-      t.string :oauth_token
-      t.datetime :oauth_expires_at
+      add_column :users, :provider, :string
+      add_column :users, :uid, :string
+      add_column :users, :name, :string
+      add_column :users, :oauth_token, :string
+      add_column :users, :oauth_expires_at, :datetime
 
-      t.timestamps
-    end
+      #t.timestamps
   end
 end
