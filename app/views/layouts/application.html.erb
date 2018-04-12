@@ -22,6 +22,13 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <div class="container-fluid">
+                <% if current_user %>
+                    Signed in as <strong><%= current_user.name %></strong>!
+                    <%= link_to "Sign out", destroy_user_session_path, method: :delete, id: "sign_out" %>
+                <% else %>
+                  <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_url, id: "sign_in" %>
+                  <%= link_to "sign in with Discord", user_discord_omniauth_authorize_url, id: "sign_in" %>
+                <% end %>
               </div>
             </ul>
           </div>
