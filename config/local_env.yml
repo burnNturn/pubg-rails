@@ -1,0 +1,19 @@
+# Rename this file to local_env.yml
+# Add account settings and API keys here.
+# This file should be listed in .gitignore to keep your settings secret!
+# Each entry gets set as a local environment variable.
+# This file overrides ENV variables in the Unix shell.
+# For example, setting:
+# GMAIL_USERNAME: 'Your_Gmail_Username'
+# makes 'Your_Gmail_Username' available as ENV["GMAIL_USERNAME"]
+
+## Intrinio API credentials
+DISCORD_CLIENT_ID: '433079804770779146'
+DISCORD_CLIENT_SECRET: 'Ow12Vm4o8IDsNNDQDNkYAXSe5qli6uhj'
+DISCORD_REDIRECT_URI: 'http://pubg-bot-burnturn-1.c9users.io:8080/auth/discord/callback'
+
+FACEBOOK_API: '339895249864920'
+FACEBOOK_KEY: 'e985547a80a8e77ea9d90f55feaffa69'
+
+GOOGLE_CLIENT_ID: '158309731849-ah2svhnb9ggsimhsnvsdkekkmank862o.apps.googleusercontent.com'
+GOOGLE_CLIENT_SECRET: '7vGi92WnE4nmIzaK7-waVBfH'
