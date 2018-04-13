@@ -18,6 +18,11 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 
 gem 'devise'
+# admin
+gem 'rails_admin', '~> 1.3'
+# authorization
+gem 'cancancan', '~> 1.10'
+
 gem 'omniauth-google-oauth2'
 gem 'omniauth-discord'
 
