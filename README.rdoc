@@ -1,28 +1,9 @@
-== README
+== Getting Started
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails Version: 5.0.0
 
-Things you may want to cover:
+When you clone the repo there will be a file "/config/secrets.yml" missing. You will need to set up a google api and discord api credentials and then add the credentials that file.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+== For Deployment
+# What we need...
+* Set up specific API's for google and discord to redirect to the correct url
