@@ -19,6 +19,9 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  
+  config.omniauth :google_oauth2, Rails.application.secrets.GOOGLE_CLIENT, Rails.application.secrets.GOOGLE_SECRET, {client_options: {ssl: {ca_file: Rails.root.join("cacert.pem").to_s}}}
+  config.omniauth :discord, Rails.application.secrets.DISCORD_CLIENT, Rails.application.secrets.DISCORD_SECRET, scope: 'email identify'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
