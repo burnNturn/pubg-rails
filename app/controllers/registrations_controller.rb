@@ -8,6 +8,10 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     # add custom create logic here
   end
+  
+  def shown
+    
+  end
 
   protected
 
