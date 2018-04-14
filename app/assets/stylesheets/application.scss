@@ -15,6 +15,7 @@
  // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "stats.scss";
 
 body {
     background-image: url("https://raw.githubusercontent.com/pubg/api-assets/master/assets/maps/Erangel_Minimap_lowres.jpg");
@@ -44,4 +45,5 @@ body {
     background: #000;
     width: 95%;
     margin: auto;
+    border-radius: 10px;
 }

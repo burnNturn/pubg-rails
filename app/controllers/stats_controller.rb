@@ -2,7 +2,8 @@ class StatsController < ApplicationController
   def stats_look_up
     client = RUBG::Client.new({:api_key => Rails.application.secrets.PUBG_SECRET})
     if params['search'] && params['platform'] && params['region']
-      args = {:shard => params['platform'] + "-" + params['region'], :query_params => {:player_names => params['search']}}
+      args = {:shard => MATCH_SEARCH_PARAMS[:platform].key(params['platform']).to_s + "-" + MATCH_SEARCH_PARAMS[:region].key(params['region']).to_s,
+              :query_params => {:player_names => params['search']}}
       begin
         player_response = client.players(args)
         args[:query_params] = {:match_id => player_response.players.first.match_ids[0]}

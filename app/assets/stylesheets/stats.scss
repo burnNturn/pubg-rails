@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.form-container {
-    color: #fff;
+#platform-container, #region-container{
+    //color: #fff;
+}
+
+#search-form {
+    width: 50%;
+    margin: auto;
 }

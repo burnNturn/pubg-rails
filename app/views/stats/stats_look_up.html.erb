@@ -3,30 +3,10 @@
     <%= form_tag(stats_stats_look_up_path, :method => "get", id: "search-form") do %>
         <%= text_field_tag :search, params[:search], placeholder: "Search Matches" %>
         <div id='platform-container'>
-            <%= radio_button_tag 'platform', name="pc" %>
-            <%= label_tag 'platform', "PC" %>
-            <%= radio_button_tag 'platform', name="xbox" %>
-            <%= label_tag 'platform', "Xbox" %>
+            <%= select_tag "platform", StatsHelper.build_select_opts({:key => 'platform'}).html_safe %>
         </div>
         <div id='region-container'>
-            <%= radio_button_tag 'region', name="as" %>
-            <%= label_tag 'region_as', name="Asia" %>
-            <%= radio_button_tag 'region', name="eu" %>
-            <%= label_tag 'region_eu', name="Europe" %>
-            <%= radio_button_tag 'region', name="na" %>
-            <%= label_tag 'region_na', "North America" %>
-            <%= radio_button_tag 'region', name="oc" %>
-            <%= label_tag 'region_oc', "Oceania" %>
-            <%= radio_button_tag 'region', name="krjp" %>
-            <%= label_tag 'region_krjp', name="Korea" %>
-            <%= radio_button_tag 'region', name="jp" %>
-            <%= label_tag 'region_jp', name="Japan" %>
-            <%= radio_button_tag 'region', name="kakao" %>
-            <%= label_tag 'region_kakao', name="Kakao" %>
-            <%= radio_button_tag 'region', name="sea" %>
-            <%= label_tag 'region_sea', name="South East Asia" %>
-            <%= radio_button_tag 'region', name="sa" %>
-            <%= label_tag 'region_sa', name="South and Central America" %>
+            <%= select_tag "region", StatsHelper.build_select_opts({:key => 'region'}).html_safe %>
         </div>
         <%= submit_tag "Search", :name => nil %>
     <% end %>
