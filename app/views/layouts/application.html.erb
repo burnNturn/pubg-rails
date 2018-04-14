@@ -8,6 +8,8 @@
     <%= csrf_meta_tags %>
   </head>
     <body>
+      <div class="layer">
+      </div>
       <nav class="navbar  navbar-inverse">
           <div class="container-fluid">
             <div class="navbar-header">
@@ -33,9 +35,18 @@
             </ul>
           </div>
         </nav>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+    <% if @error_message %>
+      <p class='error-message'><%= @error_message %></p>
+    <% end %>
+    <div class="body-container">
+      <%= yield %>
+    </div>
     
     </body>
 </html>

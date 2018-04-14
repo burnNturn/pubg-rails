@@ -1,5 +1,5 @@
-<h1>Stats#stats_look_up</h1>
-<p>
+<h1>Latest Match Look Up</h1>
+<div class="form-container">
     <%= form_tag(stats_stats_look_up_path, :method => "get", id: "search-form") do %>
         <%= text_field_tag :search, params[:search], placeholder: "Search Matches" %>
         <div id='platform-container'>
@@ -33,4 +33,4 @@
     <% if @data %>
         <%= render :partial => 'participant_stats' %>
     <% end %>
-</p>
+</div>

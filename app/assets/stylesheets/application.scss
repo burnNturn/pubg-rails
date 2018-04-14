@@ -15,3 +15,33 @@
  // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+body {
+    background-image: url("https://raw.githubusercontent.com/pubg/api-assets/master/assets/maps/Erangel_Minimap_lowres.jpg");
+
+    h1 {
+        color: #DB8329;
+        text-align: center;
+    }
+}
+
+.layer {
+    background-color: rgba(248, 247, 216, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.error-message {
+    text-align: center;
+    width: 100%;
+}
+
+.body-container {
+    background: #000;
+    width: 95%;
+    margin: auto;
+}

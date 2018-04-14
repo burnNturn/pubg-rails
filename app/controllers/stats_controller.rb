@@ -10,8 +10,7 @@ class StatsController < ApplicationController
         @data = {}
         @data['participant'] = StatsHelper.find_participant(match.rosters, params['search'])
       rescue Exception => e
-        puts e.message
-        puts e.backtrace.inspect
+        @error_message = "The in game name used does not exist"
       end
     end
   end
