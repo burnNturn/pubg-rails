@@ -11,7 +11,11 @@
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-
+  </div>
+  
+  <div class="field">
+    <%= f.label :pubg_account %><br />
+    <%= f.text_field :pubg_account, autofocus: true, autocomplete: "enter your PUBG screen name here" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -25,13 +29,13 @@
       <br />
       <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
+      
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
-
 
   <div class="actions">
     <%= f.submit "Update" %>

@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   
   # sets what paramaters are permitted for user on sign_up and update
   def configure_permitted_parameters
-    attributes = [:name]
+    attributes = [:name, :pubg_account]
     devise_parameter_sanitizer.permit(:sign_up, keys: attributes)
     devise_parameter_sanitizer.permit(:account_update, keys: attributes)
   end
