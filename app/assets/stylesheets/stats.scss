@@ -51,11 +51,29 @@
 
 #stat-container {
     color: #fff;
-    width: 100%;
     clear: left;
 
-    div {
-        width: 50%;
+    #match-container, #participant-container {
+        width: 35%;
         float: left;
+        margin: 0 85px;
+    }
+
+    h3 {
+        text-align: center;
+        background: #9ca291;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        margin-bottom: 0;
+        padding-bottom: 3px;
+    }
+
+    ul {
+        list-style-type: none;
+        background: #abb4bd;
+        padding-bottom: 10px;
+        line-height: 2em;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
     }
 }
