@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'stats/stats_look_up'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, :controllers => { :omniauth_callbacks =>
     "users/omniauth_callbacks" }
