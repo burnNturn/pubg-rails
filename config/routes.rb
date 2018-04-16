@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
   get 'stats/stats_look_up'
 
-=======
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
->>>>>>> master
   devise_for :users, :controllers => { :omniauth_callbacks =>
     "users/omniauth_callbacks" }
   # The priority is based upon order of creation: first created -> highest priority.
