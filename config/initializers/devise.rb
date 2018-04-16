@@ -8,7 +8,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '6e338b86128d6bc5b0047e1f78595f35e941c5effac2cec453c5bc3bdfac3e790b9383b6fce6d660607ac190285cfd3d8ad003bba048e649453e5926d2391c96'
+  # config.secret_key = '4e2b94d96146247df700c640f488ee50893beca05e30f3ec5e619df8056df21a7fc56368cddaf5a4f2335f9487d2d316f45de2eb96ac5ef1fe3132b1a5138cb7'
   
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -19,6 +19,8 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  
+  
   
   config.omniauth :google_oauth2, Rails.application.secrets.GOOGLE_CLIENT, Rails.application.secrets.GOOGLE_SECRET, {client_options: {ssl: {ca_file: Rails.root.join("cacert.pem").to_s}}}
   config.omniauth :discord, Rails.application.secrets.DISCORD_CLIENT, Rails.application.secrets.DISCORD_SECRET, scope: 'email identify'
@@ -117,7 +119,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '446240448db688f1d7fc3069f08d470fbbe25e4e5df11076016429605c754335de08f700a98338fac92178f330add85a5291e0067098e1c5e497c476e566dff2'
+  # config.pepper = '920df53d2ab2873fb4905319d731746ce7a9537b856e0e66dc5b2256d0b980a13a9c3a309e88ad5abefffc97a4719ef6481403ab9be404615ba0d11192daa840'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
