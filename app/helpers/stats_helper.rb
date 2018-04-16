@@ -20,7 +20,7 @@ MATCH_TYPE = {
     'solo-fpp': "Solo - First Person",
     'solo-tpp': "Solo - Third Person",
     'duo-fpp': "Duo - First Person",
-    'due-tpp': "Dup - Third Person",
+    'duo-tpp': "Dup - Third Person",
     'squad-fpp': "Squad - First Person",
     'squad-tpp': "Squad - Third Person"
 }
