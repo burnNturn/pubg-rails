@@ -8,8 +8,8 @@ class StatsController < ApplicationController
         player_response = client.players(args)
         args[:query_params] = {:match_id => player_response.players.first.match_ids[0]}
         match = client.match(args)
-        @data = {}
-        @data['participant'] = StatsHelper.find_participant(match.rosters, params['search'])
+        @data = {'match': match}
+        @data[:participant] = StatsHelper.find_participant(match.rosters, params['search'])
       rescue Exception => e
         @error_message = "The in game name used does not exist"
       end

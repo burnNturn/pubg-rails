@@ -5,6 +5,10 @@
 //#platform-container, #region-container{
 //   color: #fff;
 //}
+#search-form-container {
+    float: left;
+    width: 100%;
+}
 
 #search-form {
     width: 50%;
@@ -37,5 +41,21 @@
 
     label {
         color: #fff;
+    }
+
+    .highlight {
+        font-weight: bold;
+        font-size: 16px;
+    }
+}
+
+#stat-container {
+    color: #fff;
+    width: 100%;
+    clear: left;
+
+    div {
+        width: 50%;
+        float: left;
     }
 }

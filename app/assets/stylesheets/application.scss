@@ -17,18 +17,33 @@
  @import "bootstrap";
  @import "stats.scss";
 
+@font-face {
+  font-family: "HeadlinerNo45";
+  src: url("/assets/HeadlinerNo45.ttf") format('truetype');
+}
+
+.pubg-font {
+    font-family: "HeadlinerNo45";
+    color: #DB8329 !important;
+}
+
+.navbar-logo {
+    font-size: 30px;
+    margin-top: 5px;
+}
+
 body {
     background-image: url("https://raw.githubusercontent.com/pubg/api-assets/master/assets/maps/Erangel_Minimap_lowres.jpg");
+    background-size: cover;
 
     h1 {
-        color: #DB8329;
         text-align: center;
     }
 }
 
 .layer {
     background-color: rgba(248, 247, 216, 0.7);
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -46,4 +61,9 @@ body {
     width: 95%;
     margin: auto;
     border-radius: 10px;
+}
+
+.fl-w100 {
+    float: left;
+    width: 100%;
 }
