@@ -57,9 +57,10 @@ body {
 }
 
 .body-container {
+    float: left;
     background: #000;
     width: 95%;
-    margin: auto;
+    margin: 0 35px;
     border-radius: 10px;
 }
 
