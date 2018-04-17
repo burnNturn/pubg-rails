@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180413025702) do
+ActiveRecord::Schema.define(version: 20180414032201) do
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20180413025702) do
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
     t.boolean  "admin",                  default: false
+    t.string   "pubg_account"
     t.index ["created_at"], name: "index_users_on_created_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
