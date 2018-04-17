@@ -21,10 +21,6 @@ class UsersController < ApplicationController
         format.js
       end
     end
-    # byebug
-    # @user = User.find(params[:id])
-    # @user.update(user_params)
-    # render(user_path)
   end
   
   private
