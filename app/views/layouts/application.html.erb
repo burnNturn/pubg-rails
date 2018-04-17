@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%= javascript_include_tag 'application.js' %>
 <html>
   <head>
     <title>Workspace</title>
@@ -28,8 +29,7 @@
                     <% end %>
                     Signed in as <strong><%= current_user.name %></strong>!
                     <%= link_to "Sign out", destroy_user_session_path, method: :delete, id: "sign_out" %>
-                    <%= link_to "Edit", edit_user_registration_path, id: "edit_user" %>
-                    <%= link_to "Show", user_path(:id => current_user) %> 
+                    <%= link_to "Edit", edit_user_registration_path, html_options = {:id => "edit_user" }%>
                 <% else %>
                   <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_url, id: "sign_in" %>
                   <%= link_to "sign in with Discord", user_discord_omniauth_authorize_url, id: "sign_in" %>
