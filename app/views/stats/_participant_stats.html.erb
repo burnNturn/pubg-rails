@@ -1,0 +1,50 @@
+<div id='stat-container' class='container'>
+  <div class="row">
+    <div id="match-container" class='col'>
+      <h3>Match Info</h3>
+      <ul>
+        <li><%= "Start Time: " + @data[:match].created.to_s %></li>
+        <li><%= "Duration: " + StatsHelper.friendly_duration_time(@data[:match].duration) %></li>
+        <li><%= "Type: " + StatsHelper.friendly_match_type(@data[:match].mode) %></li>
+        <li><%= "Map: " + @data[:match].map %></li>
+        <li><%= "Platform/Location: " + @data[:match].shard %></li>
+        <li><%= "Player Count: " + @data[:match].player_count.to_s %></li>
+        <li>
+          <span>Winners:</span>
+          <ol>
+          <% @data[:match].winners.participants.each do |participant| %>
+            <li><%= participant.name + " - Kills: " + participant.kills.to_s %></li>
+          <% end %>
+          </ol>
+        </li>
+      </ul>
+    </div>
+    <div id="participant-container" class='col'>
+      <h3><%= @data[:participant].name + "'s Info"%></h3>
+      <ul>
+        <li class="highlight"><%= "Knocks: " + @data[:participant].dbnos.to_s %></li>
+        <li class="highlight"><%= "Win Place: " + @data[:participant].win_place.to_s %></li>
+        <li class="highlight"><%= "Kill: " + @data[:participant].kills.to_s %></li>
+        <li class="highlight"><%= "Headshots(kills): " + @data[:participant].headshot_kills.to_s %></li>
+        <li class="highlight"><%= "Damage Dealt: " + @data[:participant].damage_dealt.to_s %></li>
+        <li class="highlight"><%= "Longest Kill: " + @data[:participant].longest_kill.to_s %></li>
+        <li class="highlight"><%= "Distance Travelled: " + (@data[:participant].walk_distance + @data[:participant].ride_distance).to_s %></li>
+        <li><%= "Assists: " + @data[:participant].assists.to_s %></li>
+        <li><%= "Boosts: " + @data[:participant].boosts.to_s %></li>
+        <li><%= "Death Type: " + @data[:participant].death_type.to_s %></li>
+        <li><%= "Heals: " + @data[:participant].heals.to_s %></li>
+        <li><%= "Place(base on kills): " + @data[:participant].kill_place.to_s %></li>
+        <li><%= "Kill Streaks: " + @data[:participant].kill_streaks.to_s %></li>
+        <li><%= "Last Kill Points: " + @data[:participant].last_kill_points.to_s %></li>
+        <li><%= "Last Win Points: " + @data[:participant].last_win_points.to_s %></li>
+        <li><%= "Most Damage: " + @data[:participant].most_damage.to_s %></li>
+        <li><%= "Revives: " + @data[:participant].revives.to_s %></li>
+        <li><%= "Road Kills: " + @data[:participant].road_kills.to_s %></li>
+        <li><%= "Team Kills: " + @data[:participant].team_kills.to_s %></li>
+        <li><%= "Time Survived: " + @data[:participant].time_survived.to_s %></li>
+        <li><%= "Vehicles Destroyed: " + @data[:participant].vehicle_destroys.to_s %></li>
+        <li><%= "Weapons Acquired: " + @data[:participant].weapons_acquired.to_s %></li>
+      </ul>
+    </div>
+  </div>
+</div>

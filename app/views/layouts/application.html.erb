@@ -8,17 +8,19 @@
     <%= csrf_meta_tags %>
   </head>
     <body>
+      <div class="layer">
+      </div>
       <nav class="navbar  navbar-inverse">
           <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand" href="#">PUBG APP</a>
+              <a class="navbar-brand pubg-font navbar-logo" href="#">PUBG Bot</a>
             </div>
             <ul class="nav navbar-nav">
               <li><%= link_to 'Page 1', href="#", :class=> 'navbar-link' %></li>
               <li><%= link_to 'Page 2', href="#", :class=> 'navbar-link' %></li>
               <li><%= link_to 'Page 3', href="#", :class=> 'navbar-link' %></li>
               <li><%= link_to 'Page 4', href="#", :class=> 'navbar-link' %></li>
-              <li><%= link_to 'Page 5', href="#", :class=> 'navbar-link' %></li>
+              <li><%= link_to 'Latest Match Look Up', href=stats_stats_look_up_path, :class=> 'navbar-link' %></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <div class="container-fluid">
@@ -36,9 +38,18 @@
             </ul>
           </div>
         </nav>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+    <% if @error_message %>
+      <p class='error-message'><%= @error_message %></p>
+    <% end %>
+    <div class="body-container">
+      <%= yield %>
+    </div>
     
     </body>
 </html>
