@@ -15,15 +15,10 @@ ActiveRecord::Schema.define(version: 20180417201017) do
   create_table "players", force: :cascade do |t|
     t.string   "player_id"
     t.string   "name"
-    t.datetime "created"
-    t.datetime "updated"
-    t.string   "patch_version"
     t.string   "shard"
     t.string   "stats"
-    t.string   "title_id"
-    t.string   "link"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
