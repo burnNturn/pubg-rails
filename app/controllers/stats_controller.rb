@@ -9,22 +9,66 @@ class StatsController < ApplicationController
         player_response = client.players(args)
         player = player_response.players.first
 
-        args[:query_params] = {:match_id => player.match_ids[0]}
-        match = client.match(args)
-        
-        player_hash ={
-          'id': player.player_id,
+        player_hash = {
+          'player_id': player.player_id,
           'name': player.name,
           'shard': shard
         }
-        
-        Player.where(player_hash).first_or_initialize do |k|
+
+        player_record = Player.where(player_hash).first_or_create do |k|
           k.save
         end
 
-        @data = {'match': match}
-        @data[:participant] = StatsHelper.find_participant(match.rosters, params['search'])
-        byebug
+        if !(match = Match.find_by_match_id(player.match_ids[0]))
+
+          args[:query_params] = {:match_id => player.match_ids[0]}
+          match = client.match(args)
+          participant = StatsHelper.find_participant(match.rosters, params['search'])
+
+          Match.transaction do
+            Participant.transaction do
+              winners = match.winners.participants 
+
+              match = Match.create(
+                match_id: match.match_id,
+                duration: match.duration,
+                mode: match.mode,
+                map: match.map,
+                telemetry_link: match.telemetry_link,
+                player_count: match.player_count,
+                roster_count: match.roster_count,
+                shard: shard,
+                created: match.created
+              )
+
+              winners.each do |participant|
+                player_hash = {
+                  'player_id': participant.player_id,
+                  'name': participant.name,
+                  'shard': shard
+                }
+                Player.where(player_hash).first_or_create do |k|
+                  k.save
+                end
+                
+                Participant.build_or_find_participant(participant, match, true)
+              end
+            end
+          end
+          
+          #if the participant wasnt created already, do so now!
+          participant = Participant.build_or_find_participant(participant, match)
+        else
+
+          participant = Participant.find_by(match: match, player: player_record)
+        end
+
+        winners = Participant.where(match: match, winner: true)
+        @data = {
+          'match': match,
+          'participant': participant,
+          'winners': winners
+        }
       rescue Exception => e
         @error_message = "The in game name used does not exist"
       end

@@ -10,7 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180417201017) do
+ActiveRecord::Schema.define(version: 20180418182506) do
+
+  create_table "matches", force: :cascade do |t|
+    t.string   "match_id"
+    t.integer  "duration"
+    t.string   "mode"
+    t.string   "map"
+    t.string   "telemetry_link"
+    t.integer  "player_count"
+    t.integer  "roster_count"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.datetime "created"
+    t.string   "shard"
+  end
+
+  create_table "participants", force: :cascade do |t|
+    t.integer "dbnos"
+    t.integer "assists"
+    t.integer "boosts"
+    t.integer "damage_dealt"
+    t.integer "headshot_kills"
+    t.integer "heals"
+    t.integer "kill_streaks"
+    t.integer "kills"
+    t.integer "longest_kill"
+    t.integer "revives"
+    t.integer "ride_distance"
+    t.integer "road_kills"
+    t.integer "team_kills"
+    t.integer "time_survived"
+    t.integer "vehicle_destroys"
+    t.integer "walk_distance"
+    t.string  "weapons_acquired"
+    t.integer "kill_ranking_before"
+    t.integer "kill_ranking_gained"
+    t.integer "win_ranking_before"
+    t.integer "win_ranking_gained"
+    t.integer "overall_ranking_gained"
+    t.integer "player_id"
+    t.integer "match_id"
+    t.integer "kill_place"
+    t.boolean "winner"
+    t.integer "win_place"
+    t.string  "death_type"
+    t.index ["match_id"], name: "index_participants_on_match_id"
+    t.index ["player_id"], name: "index_participants_on_player_id"
+  end
 
   create_table "players", force: :cascade do |t|
     t.string   "player_id"
