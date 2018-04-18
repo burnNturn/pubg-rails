@@ -1,0 +1,14 @@
+<p>
+    <strong>Name</strong><br />
+    <%= @user.name %>
+</p>
+<p>
+    <strong>Account Authentication through</strong><br />
+    <%= @user.provider %>
+</p>
+<p>
+    <strong>PUBG Screen Name</strong><br />
+    <%= @user.pubg_account %>
+</p>
+
+<%= render 'form', user: @user %>
