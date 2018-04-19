@@ -41,17 +41,19 @@ class StatsController < ApplicationController
                 created: match.created
               )
 
-              winners.each do |participant|
+              TelemetryWorker.perform_async(match.telemetry_link, params['search'])
+
+              winners.each do |p|
                 player_hash = {
-                  'player_id': participant.player_id,
-                  'name': participant.name,
+                  'player_id': p.player_id,
+                  'name': p.name,
                   'shard': shard
                 }
                 Player.where(player_hash).first_or_create do |k|
                   k.save
                 end
                 
-                Participant.build_or_find_participant(participant, match, true)
+                Participant.build_or_find_participant(p, match, true)
               end
             end
           end
@@ -64,6 +66,7 @@ class StatsController < ApplicationController
         end
 
         winners = Participant.where(match: match, winner: true)
+        
         @data = {
           'match': match,
           'participant': participant,

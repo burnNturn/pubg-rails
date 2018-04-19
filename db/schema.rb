@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180418182506) do
+ActiveRecord::Schema.define(version: 20180419041934) do
 
   create_table "matches", force: :cascade do |t|
     t.string   "match_id"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20180418182506) do
     t.boolean "winner"
     t.integer "win_place"
     t.string  "death_type"
+    t.string  "preferred_weapon"
     t.index ["match_id"], name: "index_participants_on_match_id"
     t.index ["player_id"], name: "index_participants_on_player_id"
   end
