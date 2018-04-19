@@ -21,16 +21,11 @@ class UsersController < ApplicationController
         format.js
       end
     end
-    # byebug
-    # @user = User.find(params[:id])
-    # @user.update(user_params)
-    # render(user_path)
   end
   
   private
 
   def user_params
-    byebug
     params.require(:user).permit(:name, :email, :pubg_account)
   end
   
