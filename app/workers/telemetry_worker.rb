@@ -2,15 +2,7 @@ class TelemetryWorker
   include Sidekiq::Worker
 
   def perform(tel_link, ign)
-    uri = URI(tel_link)
-    req = Net::HTTP::Get.new(uri)
-    req["Api-Key"] = Rails.application.secrets.PUBG_SECRET
-  
-    res = Net::HTTP.start(uri.hostname) {|http|
-      http.request(req)
-    }
-  
-    telemetry_data = JSON.parse res.body, symbolize_names: true
+    telemetry_data = TelemetryWorker.get_telelemtry_data(tel_link)
 
     log_player_take_damage_events = []
     telemetry_data.each { |k| log_player_take_damage_events << k if k[:_T] == "LogPlayerTakeDamage" }
@@ -45,5 +37,17 @@ class TelemetryWorker
       match: Match.find_by_telemetry_link(tel_link),
       player: Player.find_by_name(ign)
     ).update(preferred_weapon: weapon_dmg_dict.sort[0][0]) unless weapon_dmg_dict.empty?
+  end
+  
+  def self.get_telelemtry_data(tel_link)
+    uri = URI(tel_link)
+    req = Net::HTTP::Get.new(uri)
+    req["Api-Key"] = Rails.application.secrets.PUBG_SECRET
+  
+    res = Net::HTTP.start(uri.hostname) {|http|
+      http.request(req)
+    }
+
+    JSON.parse res.body, symbolize_names: true
   end
 end
