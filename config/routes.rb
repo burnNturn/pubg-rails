@@ -1,4 +1,8 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
+  mount Sidekiq::Web, at: "/sidekiq"
+
   get 'stats/stats_look_up'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

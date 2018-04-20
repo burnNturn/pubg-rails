@@ -17,4 +17,5 @@
 /tmp
 .byebug_history
 /config/secrets.yml
+dumb.rdb
 Gemfile.lock

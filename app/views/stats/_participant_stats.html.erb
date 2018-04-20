@@ -6,21 +6,21 @@
         <li><%= "Start Time: " + @data[:match].created.to_s %></li>
         <li><%= "Duration: " + StatsHelper.friendly_duration_time(@data[:match].duration) %></li>
         <li><%= "Type: " + StatsHelper.friendly_match_type(@data[:match].mode) %></li>
-        <li><%= "Map: " + @data[:match].map %></li>
+        <li><%= "Map: " + (@data[:match].map ? @data[:match].map : "Unknown") %></li>
         <li><%= "Platform/Location: " + @data[:match].shard %></li>
         <li><%= "Player Count: " + @data[:match].player_count.to_s %></li>
         <li>
           <span>Winners:</span>
           <ol>
-          <% @data[:match].winners.participants.each do |participant| %>
-            <li><%= participant.name + " - Kills: " + participant.kills.to_s %></li>
+          <% @data[:winners].each do |participant| %>
+            <li><%= participant.player.name + " - Kills: " + participant.kills.to_s %></li>
           <% end %>
           </ol>
         </li>
       </ul>
     </div>
     <div id="participant-container" class='col'>
-      <h3><%= @data[:participant].name + "'s Info"%></h3>
+      <h3><%= @data[:participant].player.name + "'s Info"%></h3>
       <ul>
         <li class="highlight"><%= "Knocks: " + @data[:participant].dbnos.to_s %></li>
         <li class="highlight"><%= "Win Place: " + @data[:participant].win_place.to_s %></li>
@@ -35,9 +35,6 @@
         <li><%= "Heals: " + @data[:participant].heals.to_s %></li>
         <li><%= "Place(base on kills): " + @data[:participant].kill_place.to_s %></li>
         <li><%= "Kill Streaks: " + @data[:participant].kill_streaks.to_s %></li>
-        <li><%= "Last Kill Points: " + @data[:participant].last_kill_points.to_s %></li>
-        <li><%= "Last Win Points: " + @data[:participant].last_win_points.to_s %></li>
-        <li><%= "Most Damage: " + @data[:participant].most_damage.to_s %></li>
         <li><%= "Revives: " + @data[:participant].revives.to_s %></li>
         <li><%= "Road Kills: " + @data[:participant].road_kills.to_s %></li>
         <li><%= "Team Kills: " + @data[:participant].team_kills.to_s %></li>

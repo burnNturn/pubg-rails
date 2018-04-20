@@ -38,6 +38,10 @@ gem 'sdoc', '~> 1.0', group: :doc
 gem 'rubg'
 gem 'json'
 
+#Sidekiq dependecies
+gem 'sinatra', require: false
+gem 'slim'
+gem 'sidekiq'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
