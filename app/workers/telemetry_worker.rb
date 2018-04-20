@@ -9,6 +9,8 @@ class TelemetryWorker
 
     ign_events = []
 
+    # Duplicate logic is needed here because the data for Xbox and PC are different 
+    # when it comes to keys for accessing the data.
     begin
       log_player_take_damage_events.each { |k| ign_events << k if k[:Attacker][:Name] == ign }
       
