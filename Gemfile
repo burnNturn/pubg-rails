@@ -37,6 +37,8 @@ gem 'sdoc', '~> 1.0', group: :doc
 
 gem 'rubg'
 gem 'json'
+gem 'rspec'
+gem 'rspec-rails', '~> 3.5'
 
 #Sidekiq dependecies
 gem 'sinatra', require: false

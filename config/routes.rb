@@ -65,4 +65,16 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+#############################
+#                           #
+#       API Routes          #
+#                           #
+#############################
+  namespace :api do
+    namespace :v1 do
+      resources :matches do
+      end
+    end
+  end
+
 end
