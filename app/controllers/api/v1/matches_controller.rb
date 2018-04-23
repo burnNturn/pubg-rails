@@ -11,7 +11,7 @@ class Api::V1::MatchesController < Api::BaseController
 
  private
    def find_match
-     @match = Match.find_by_match_id(params[:match_id])
+     @match = Match.find_by_match_id(params[:id])
      render nothing: true, status: :not_found unless @match.present?
    end
  end
