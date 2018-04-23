@@ -1,21 +1,20 @@
 class Api::BaseController < ApplicationController
-    # before_filter :parse_request, :authenticate_user_from_token!
+    skip_before_action :authenticate_user!
+    before_filter :authenticate_user_from_token!
 
-    # private
-    #   def authenticate_user_from_token!
-    #      if !@json['api_token']
-    #       render nothing: true, status: :unauthorized
-    #      else
-    #       @user = nil
-    #       User.find_each do |u|
-    #          if Devise.secure_compare(u.api_token, @json['api_token'])
-    #           @user = u
-    #          end
-    #       end
-    #      end
-    #   end
-
-    #   def parse_request
-    #      @json = JSON.parse(request.body.read)
-    #   end
+    private
+    
+    def authenticate_user_from_token!
+        if !request.headers["HTTP_API_KEY"]
+            render nothing: true, status: :unauthorized
+        else
+            @user = nil
+            User.find_each do |u|
+                if Devise.secure_compare(u.api_token, request.headers["HTTP_API_KEY"])
+                    @user = u
+                end
+            end
+        end
     end
+
+end
