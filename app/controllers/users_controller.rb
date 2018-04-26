@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   
   def videos
     plays_tv = PlaysTv.new
-    @response = PlaysTv.get_videos('burnNturn3')
+    @response = PlaysTv.get_videos(current_user.playstv_account)
   end
   
   private
