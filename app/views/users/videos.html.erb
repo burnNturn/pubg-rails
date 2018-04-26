@@ -1,0 +1,17 @@
+
+
+
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+      <div class="panel-group">
+        <% @response['content']['items'].each do |video| %>
+          <div class="panel panel-primary" align="center">
+            <div class="panel panel-heading" ><h3 style="color:black"><%=link_to video['description'], video['link'], :color => "black"  %></h3></div>
+            <div class="panel panel-body"></div><iframe src='http:<%= video['embed'] %>' height="408" width="720"</iframe></div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-lg-2"></div>
+  </div>

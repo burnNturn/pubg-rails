@@ -40,7 +40,7 @@ class RegistrationsController < Devise::RegistrationsController
   private
   
   def user_params
-    params.require(:user).permit(:name, :email, :pubg_account)
+    params.require(:user).permit(:name, :email, :pubg_account, :playstv_account)
   end
   
   
