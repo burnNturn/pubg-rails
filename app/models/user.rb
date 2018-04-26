@@ -12,4 +12,16 @@ class User < ApplicationRecord
       user.name = auth.info.name
     end      
   end
+  
+  def set_api_token
+    return if self.api_token.present?
+    self.api_token = generate_api_token
+    self.save
+  end
+
+  private
+  
+    def generate_api_token
+      SecureRandom.uuid.gsub(/\-/,'')
+    end
 end
