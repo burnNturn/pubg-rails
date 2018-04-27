@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20180423024108) do
     t.datetime "oauth_expires_at"
     t.boolean  "admin",                  default: false
     t.string   "pubg_account"
+    t.string   "playstv_account"
     t.string   "api_token"
     t.index ["created_at"], name: "index_users_on_created_at"
     t.index ["email"], name: "index_users_on_email", unique: true

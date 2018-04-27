@@ -23,10 +23,15 @@ class UsersController < ApplicationController
     end
   end
   
+  def videos
+    plays_tv = PlaysTv.new
+    @response = PlaysTv.get_videos(current_user.playstv_account)
+  end
+  
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :pubg_account)
+    params.require(:user).permit(:name, :email, :pubg_account, :playstv_account)
   end
   
 end

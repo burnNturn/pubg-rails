@@ -18,7 +18,6 @@ class StatsController < ApplicationController
         player_record = Player.where(player_hash).first_or_create do |k|
           k.save
         end
-
         if !(match = Match.find_by_match_id(player.match_ids[0]))
 
           args[:query_params] = {:match_id => player.match_ids[0]}
