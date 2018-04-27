@@ -16,6 +16,7 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "stats.scss";
+ @import "users.scss";
 
 @font-face {
   font-family: "HeadlinerNo45";
@@ -67,4 +68,27 @@ body {
 .fl-w100 {
     float: left;
     width: 100%;
+}
+
+.font-color {
+    color: #f8f7d8 !important;
+}
+
+.navbar-right {
+    div {
+        span {
+            line-height: 3.5;
+        }
+    }
+}
+
+footer {
+    width: 100%;
+    height: 15px;
+    clear: both;
+}
+
+.alert {
+    width: 100%;
+    text-align: center;
 }

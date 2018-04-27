@@ -11,17 +11,13 @@
     <body>
       <div class="layer">
       </div>
-      <nav class="navbar  navbar-inverse">
+      <nav class="navbar  navbar-inverse font-color">
           <div class="container-fluid">
             <div class="navbar-header">
               <a class="navbar-brand pubg-font navbar-logo" href="#">PUBG Bot</a>
             </div>
             <ul class="nav navbar-nav">
-              <li><%= link_to 'Page 1', href="#", :class=> 'navbar-link' %></li>
-              <li><%= link_to 'Page 2', href="#", :class=> 'navbar-link' %></li>
-              <li><%= link_to 'Page 3', href="#", :class=> 'navbar-link' %></li>
-              <li><%= link_to 'Page 4', href="#", :class=> 'navbar-link' %></li>
-              <li><%= link_to 'Latest Match Look Up', href=stats_stats_look_up_path, :class=> 'navbar-link' %></li>
+              <li><%= link_to 'Latest Match Look Up', href=stats_stats_look_up_path, :class=> 'navbar-link font-color' %></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <div class="container-fluid">
@@ -29,30 +25,35 @@
                     <% if current_user.try(:admin?) %>
                       <li><%= link_to "Admin", rails_admin_path, :class => 'navbar-link' %></li>
                     <% end %>
-                    Signed in as <strong><%= current_user.name %></strong>!
+                    <span>Signed in as <strong><%= link_to current_user.name, edit_user_registration_path, html_options = {:id => "edit_user" }%></strong></span>
+                    <span> - </span>
                     <%= link_to "Sign out", destroy_user_session_path, method: :delete, id: "sign_out" %>
-                    <%= link_to "Edit", edit_user_registration_path, html_options = {:id => "edit_user" }%>
                 <% else %>
-                  <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_url, id: "sign_in" %>
-                  <%= link_to "sign in with Discord", user_discord_omniauth_authorize_url, id: "sign_in" %>
+                  <span>
+                    <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_url, id: "sign_in" %>
+                    <%= link_to "Sign in with Discord", user_discord_omniauth_authorize_url, id: "sign_in" %>
+                  </span>
                 <% end %>
               </div>
             </ul>
           </div>
         </nav>
-    <% if notice %>
-      <p class="notice"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert"><%= alert %></p>
-    <% end %>
-    <% if @error_message %>
-      <p class='error-message'><%= @error_message %></p>
-    <% end %>
-    <div class="body-container">
-      <%= yield %>
-    </div>
-    
-    </body>
+      <% if notice %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
+      <% if @error_message %>
+        <p class='error-message'><%= @error_message %></p>
+      <% end %>
+      <div class="body-container">
+        <%= yield %>
+        <div style='height:10px; clear: both;'></div>
+      </div>
+  </body>
+    <footer>
+      <div></div>
+    </footer>
 </html>
 
