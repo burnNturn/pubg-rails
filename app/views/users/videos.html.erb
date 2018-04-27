@@ -1,17 +1,13 @@
-
-
-
-  <div class="row">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-8">
-      <div class="panel-group">
-        <% @response['content']['items'].each do |video| %>
-          <div class="panel panel-primary" align="center">
-            <div class="panel panel-heading" ><h3 style="color:black"><%=link_to video['description'], video['link'], :color => "black"  %></h3></div>
-            <div class="panel panel-body"></div><iframe src='http:<%= video['embed'] %>' height="408" width="720"</iframe></div>
-          </div>
-        <% end %>
-      </div>
+<div id='video-container'>
+  <% @response['content']['items'].each do |video| %>
+    <div class='video-item'>
+      <h3 style="color:black"><%=link_to video['description'], video['link'], :color => "black"  %></h3>
+      <iframe src='https:<%= video['embed'] %>' height="348" width="100%" allowfullscreen="allowfullscreen"
+        mozallowfullscreen="mozallowfullscreen" 
+        msallowfullscreen="msallowfullscreen" 
+        oallowfullscreen="oallowfullscreen" 
+        webkitallowfullscreen="webkitallowfullscreen">
+      </iframe>
     </div>
-    <div class="col-lg-2"></div>
-  </div>
+  <% end %>
+</div>

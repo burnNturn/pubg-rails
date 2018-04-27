@@ -1,3 +1,49 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.half-edit-user-container {
+    width: 50%;
+    text-align: center;
+    float: left;
+}
+
+.actions {
+    margin-top: 5px;
+}
+
+#back {
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+
+#edit_user {
+
+    .field {
+
+        label {
+            color: #f8f7d8;
+        }
+    }
+}
+
+#show-vid {
+    h3, p {
+        color: #f8f7d8;
+    }
+}
+
+.video-item {
+    width: 45%;
+    float: left;
+    margin-left: 45px;
+
+    h3 {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        word-break: break-all;
+        word-wrap: break-word;
+    }
+}
