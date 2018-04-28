@@ -1,3 +1,7 @@
 == Getting Started
 
 (OmniAuth Strategy Creation Guide)[https://github.com/omniauth/omniauth/wiki/Strategy-Contribution-Guide]
+
+
+Good for heroku doc:
+https://devcenter.heroku.com/articles/getting-started-with-rails5#store-your-app-in-git
