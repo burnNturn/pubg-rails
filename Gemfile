@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
 
+# uploads secrets from secrets.yml to heroku
+gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '= 5.0.0'
 # Use SCSS for stylesheets
