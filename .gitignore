@@ -16,5 +16,6 @@
 !/log/.keep
 /tmp
 .byebug_history
-/config/secrets.yml
 dumb.rdb
+# Ignore application configuration
+/config/application.yml
