@@ -20,8 +20,6 @@ Devise.setup do |config|
   # with default "from" parameter.
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
   
-  config.secret_key = Rails.application.secrets.secret_key_base
-  
   
   
   config.omniauth :google_oauth2, Rails.application.secrets.GOOGLE_CLIENT, Rails.application.secrets.GOOGLE_SECRET, {client_options: {ssl: {ca_file: Rails.root.join("cacert.pem").to_s}}}
