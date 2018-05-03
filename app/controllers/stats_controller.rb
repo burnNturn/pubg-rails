@@ -1,5 +1,6 @@
 class StatsController < ApplicationController
   def stats_look_up
+    byebug
     client = RUBG::Client.new({:api_key => Rails.application.secrets.PUBG_SECRET})
     if params['search'] && params['platform'] && params['region']
       shard = MATCH_SEARCH_PARAMS[:platform].key(params['platform']).to_s + "-" + MATCH_SEARCH_PARAMS[:region].key(params['region']).to_s
@@ -23,7 +24,7 @@ class StatsController < ApplicationController
           args[:query_params] = {:match_id => player.match_ids[0]}
           match = client.match(args)
           participant = StatsHelper.find_participant(match.rosters, params['search'])
-
+          
           Match.transaction do
             Participant.transaction do
               winners = match.winners.participants 
