@@ -92,3 +92,28 @@ footer {
     width: 100%;
     text-align: center;
 }
+
+table {
+    text-align: center;
+    color: #FFF;
+    background-color: #abb4bd;
+    width: 70%;
+    margin: auto;
+    border-collapse: collapse;
+    border-style: hidden;
+
+    th {
+        text-align: center;
+        background-color: #9ca291;
+        border: 1px dotted white;
+    }
+    
+    td {
+        border: 1px dotted white;
+
+        a {
+            font-size: 18px;
+            font-weight: 900;  
+        }
+    }
+}
