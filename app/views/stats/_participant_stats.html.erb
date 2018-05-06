@@ -52,6 +52,10 @@
     <% if local_assigns[:player_show] %>
       <div id="season-container" class='col'>
       <h3>Season Stats</h3>
+      <div id='game-mode-select'>
+        <%= label_tag 'game-mode' %>
+        <%= select_tag "game-mode", SeasonsHelper.build_select_opts({:game_modes => @player.seasons.pluck(:game_mode)}).html_safe %>
+      </div>
         <ul>
             <li class="highlight"><%= "Kills: " + @player.seasons.first.kills.to_s %></li>
             <li class="highlight"><%= "Headshot Kills: " + @player.seasons.first.headshot_kills.to_s %></li>
