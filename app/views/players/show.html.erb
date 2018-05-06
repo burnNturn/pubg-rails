@@ -1,3 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<h1 class='pubg-font'><%= @player.name %></h1>
+
+<%= render 'stats/participant_stats', player_show: true, match: @player.participants.first.match, participant: @player.participants.first, winners: Participant.where(winner: true, match: @player.participants.first.match) %>
+
 <%= link_to 'Back', players_path %>
