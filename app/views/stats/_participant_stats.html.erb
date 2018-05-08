@@ -54,7 +54,7 @@
       <h3>Season Stats</h3>
       <div id='game-mode-select'>
         <%= label_tag 'game-mode' %>
-        <%= select_tag "game-mode", SeasonsHelper.build_select_opts({:game_modes => @player.seasons.pluck(:game_mode)}).html_safe %>
+        <%= select_tag "game-mode", SeasonsHelper.build_select_opts({:game_modes => @player.seasons.pluck(:game_mode)}).html_safe, {data: {player_id: @player.id, remote: true, url: seasons_change_season_path }} %>
       </div>
         <ul>
             <li class="highlight"><%= "Kills: " + @player.seasons.first.kills.to_s %></li>
