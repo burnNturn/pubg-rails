@@ -1,0 +1,3 @@
+<% if @season %>
+    $("#season-container > ul").replaceWith("<%= j render "seasons/season_stats", season: @season %>");
+<% end %>
