@@ -1,5 +1,6 @@
 class TelemetryWorker
   include Sidekiq::Worker
+  sidekiq_options :queue => :critical
 
   def perform(tel_link, ign)
     telemetry_data = TelemetryWorker.get_telelemtry_data(tel_link)

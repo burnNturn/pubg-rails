@@ -17,5 +17,5 @@
     <% end %>
 </div>
 <% if @data %>
-    <%= render :partial => 'participant_stats' %>
+    <%= render 'participant_stats', match: @data[:match], participant: @data[:participant], winners: @data[:winners] %>
 <% end %>
