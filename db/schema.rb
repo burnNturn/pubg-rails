@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180423024108) do
+ActiveRecord::Schema.define(version: 20180504023125) do
 
   create_table "matches", force: :cascade do |t|
     t.string   "match_id"
@@ -67,6 +67,44 @@ ActiveRecord::Schema.define(version: 20180423024108) do
     t.string   "stats"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "seasons", force: :cascade do |t|
+    t.string   "game_mode"
+    t.integer  "assists"
+    t.integer  "boosts"
+    t.integer  "dbnos"
+    t.integer  "daily_kills"
+    t.integer  "damage_dealt"
+    t.integer  "days"
+    t.integer  "headshot_kills"
+    t.integer  "heals"
+    t.integer  "kill_points"
+    t.integer  "kills"
+    t.integer  "longest_kill"
+    t.integer  "longest_time_survived"
+    t.integer  "losses"
+    t.integer  "max_kill_streaks"
+    t.integer  "most_survival_time"
+    t.integer  "revives"
+    t.integer  "ride_distance"
+    t.integer  "road_kills"
+    t.integer  "round_most_kills"
+    t.integer  "rounds_played"
+    t.integer  "suicides"
+    t.integer  "team_kills"
+    t.integer  "time_survived"
+    t.integer  "top_tens"
+    t.integer  "vehicle_destroys"
+    t.integer  "walk_distance"
+    t.integer  "weapons_acquired"
+    t.integer  "weekly_kills"
+    t.integer  "win_points"
+    t.integer  "wins"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.integer  "player_id"
+    t.index ["player_id"], name: "index_seasons_on_player_id"
   end
 
   create_table "users", force: :cascade do |t|

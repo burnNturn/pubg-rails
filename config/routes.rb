@@ -10,9 +10,11 @@ Rails.application.routes.draw do
     "users/omniauth_callbacks", :registrations => "registrations" }
     
   resources :users, only: [:show, :update]
+  resources :players, only: [:show, :index]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   get '/videos' => 'users#videos', as: '/videos'
+  get 'seasons/change_season'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   root 'home#index'
