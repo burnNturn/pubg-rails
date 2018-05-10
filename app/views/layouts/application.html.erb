@@ -31,7 +31,7 @@
                 <% else %>
                   <span>
                     <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_url, id: "sign_in" %>
-                    <%= link_to "Sign in with Discord", user_discord_omniauth_authorize_url, id: "sign_in" %>
+                    <%= link_to "Sign in with Discord", discord_sign_in_path, id: "sign_in" %>
                   </span>
                 <% end %>
               </div>

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     "users/omniauth_callbacks", :registrations => "registrations" }
     
   resources :users, only: [:show, :update]
+  get 'discord_sign_in' => 'discord#sign_in', as: 'discord_sign_in'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   get '/videos' => 'users#videos', as: '/videos'

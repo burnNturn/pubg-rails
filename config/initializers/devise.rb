@@ -24,7 +24,6 @@ Devise.setup do |config|
   
   config.omniauth :google_oauth2, Rails.application.secrets.GOOGLE_CLIENT, Rails.application.secrets.GOOGLE_SECRET, {client_options: {ssl: {ca_file: Rails.root.join("cacert.pem").to_s}}}
   config.omniauth :discord, Rails.application.secrets.DISCORD_CLIENT, Rails.application.secrets.DISCORD_SECRET, scope: 'email identify'
-
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 
@@ -157,7 +156,7 @@ Devise.setup do |config|
   # config.remember_for = 2.weeks
 
   # Invalidates all the remember me tokens when the user signs out.
-  config.expire_all_remember_me_on_sign_out = true
+  config.expire_all_remember_me_on_sign_out = false
 
   # If true, extends the user's remember period when remembered via cookie.
   # config.extend_remember_period = false
